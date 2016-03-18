@@ -1,0 +1,41 @@
+/*reset*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*:before {
+    box-sizing: border-box;
+}
+*:after {
+    box-sizing: border-box;
+}
+input,
+button,
+textarea {
+    font: inherit;
+}
+/*theme*/
+
+html,
+body {
+    height: 100%;
+    overflow: auto;
+}
+body {
+    position: relative;
+}
+slide {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    background: white;
+}
+slide:first-child {
+    z-index: 1;
+}
+slide.enter {
+    z-index: 1;
+}
