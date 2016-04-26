@@ -1,3 +1,15 @@
+var app = {}
+
+!(function($){
+    app.slides = {
+        next : function(){
+        },
+        prev: function(){
+        },
+
+    }
+})(jQuery)
+
 !(function($){
     $(document).on('keydown', function(e){
         switch(e.keyCode){

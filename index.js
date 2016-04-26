@@ -1,8 +1,9 @@
+/*jshint esversion:6,es3:false*/
 'use strict'
-var co = require('co')
+//var co = require('co')
 var marked = require('marked')
 var fs = require('fs-promise')
-var util = require('util')
+//var util = require('util')
 var p = require('path')
 var htmlparser = require("htmlparser");
 var handler = new htmlparser.DefaultHandler(function(error, dom) {
@@ -42,7 +43,7 @@ renderer.html = function(text) {
 
 var length = process.argv.length
 if (length < 3) {
-    console.log('slides-maker markdown outputDir')
+    console.log('slides-maker path/to/markdown/file outputDir')
     process.exit(1)
 }
 
