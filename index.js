@@ -15,8 +15,8 @@ var parser = new htmlparser.Parser(handler);
 
 var renderer = new marked.Renderer()
 
-var htmlStart = fs.readFileSync('./templates/htmlStart.html')
-var htmlEnd = fs.readFileSync('./templates/htmlEnd.html')
+var htmlStart = fs.readFileSync(p.join(__dirname, './templates/htmlStart.html'))
+var htmlEnd = fs.readFileSync(p.join(__dirname, './templates/htmlEnd.html'))
 
 renderer.heading = function(text, level) {
     var escapedText = text.replace(/\s+/g, '-');

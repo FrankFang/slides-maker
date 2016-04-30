@@ -1,3 +1,5 @@
+/*jshint -W070 */
+/*globals jQuery*/
 var app = {}
 
 !(function($){
@@ -6,7 +8,6 @@ var app = {}
         },
         prev: function(){
         },
-
     }
 })(jQuery)
 
