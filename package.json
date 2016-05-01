@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch":"wr node ./test/example.md ./output"
+    "watch": "wr 'node index ./test/example.md ./output' ./templates index.js ./test"
   },
   "author": "",
   "license": "ISC",
@@ -19,5 +19,6 @@
     "marked": "^0.3.5"
   },
   "devDependencies": {
+    "wr": "^1.3.1"
   }
 }

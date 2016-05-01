@@ -14,8 +14,7 @@ var app = {}
 
     MakeSlides.prototype = {
         init: function() {
-            var a = this.$container.children('slide').eq(this.index).addClass('current')
-            console.log(a)
+            this.$container.children('slide').eq(this.index).addClass('current')
         },
         size: function() {
             return this.$container.children('slide').length
@@ -34,12 +33,17 @@ var app = {}
         _enter: function(from, to) {
             var direction = from < to ? 'directioNormal' : 'directionReverse'
             var slides = this.$container.children('slide')
-            slides.eq(from).removeClass('current')
+            var $from = slides.eq(from).addClass('willLeave').addClass(direction)
             var $target = slides.eq(to).addClass('willEnter').addClass(direction)
             setTimeout(function() {
+                $from.addClass('leave')
+                    .one('transitionend', function() {
+                        $from.removeClass('willLeave leave').removeClass(direction).removeClass('current')
+                    })
                 $target.addClass('enter')
-                    .on('transitionend', function() {
+                    .one('transitionend', function() {
                         $target.removeClass('willEnter enter').removeClass(direction).addClass('current')
+                        console.log($target)
                     })
             })
         },

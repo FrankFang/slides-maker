@@ -3,7 +3,7 @@
 //var co = require('co')
 var marked = require('marked')
 var fs = require('fs-promise')
-//var util = require('util')
+    //var util = require('util')
 var p = require('path')
 var htmlparser = require("htmlparser");
 var handler = new htmlparser.DefaultHandler(function(error, dom) {
@@ -29,12 +29,11 @@ renderer.html = function(text) {
     function parseCollection(dom) {
         return dom.map(function(item) {
             if (item.type === 'tag') {
-                return '<' + item.raw + '>' + parseCollection(item.children) + '</' + item.name + '>'
+                    return '<' + item.raw + '>' + parseCollection(item.children) + '</' + item.name + '>'
             } else {
-                var m = marked(item.raw, {
+                return marked(item.raw, {
                     renderer: renderer
                 })
-                return m
             }
         }).join('\n')
     }
@@ -58,20 +57,19 @@ fs.readFile(input).then(function(data) {
         renderer: renderer
     })
     let result = [htmlStart, html, htmlEnd].join('\n')
-    fs.ensureDir(outputDir).then(function(){
+    fs.ensureDir(outputDir).then(function() {
 
         let target = p.join(outputDir, filename + '.html')
         let p1 = fs.writeFile(target, result, {
             encoding: 'utf8',
             flag: 'w+'
         })
-        let p2 = fs.copy(p.join(__dirname,'./templates/assets/'), p.join(outputDir, 'assets/'))
-        Promise.all([p1,p2]).then(function(){
+        let p2 = fs.copy(p.join(__dirname, './templates/assets/'), p.join(outputDir, 'assets/'))
+        Promise.all([p1, p2]).then(function() {
             console.log('done')
         })
-        
+
     })
 }, function(error) {
     console.log(error)
 })
-

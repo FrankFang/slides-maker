@@ -25,6 +25,7 @@ body {
 }
 body {
     position: relative;
+    overflow: hidden;
 }
 slide {
     position: absolute;
@@ -33,6 +34,10 @@ slide {
     z-index: 0;
     background: white;
     visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 slide:first-child {
     z-index: 1;
@@ -52,10 +57,14 @@ slide.willEnter.enter{
 }
 slide.current { z-index: 1; visibility: visible;}
 slide.willLeave{
-    z-index:2;
+    visibility: visible;
+    z-index:1;
     transform:translate(0%);
 }
 slide.willLeave.leave{
     transition: transform 0.5s;
     transform:translate(-100%);
+}
+slide.willLeave.directionReverse.leave{
+    transform:translate(100%);
 }

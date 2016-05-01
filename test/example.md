@@ -1,35 +1,31 @@
-<slide>
-# 主题
-## 副标题
+<slide style="background: red;">
+# Slides Makes
+## 又是一个制作PPT的工具 :p
 </slide>
 
-<slide>
-# 目录
+<slide style="background: green;">
+# 有哪些功能
 
-+ 你好
-+ 我是
-+ 标题3
-
-</slide>
-
-
-<slide>
-# 你好
-
-<div class='s1'>
-## 这一节讲的是 blablabla
-</div>
-<div class='s2'>
-    ## 这一节讲的是 blablabla
-</div>
+- 腻害
+- 好看
+- 轻量
 
 </slide>
 
 
-<slide>
-# 你好
+<slide style="background: #ddd;">
+# 如何书写 
 
-这一节讲的是 blablabla
+1. 每一张幻灯片用一个 `<slide></slide>` 标签表示
+2. 幻灯片的内容用 Markdown 来书写
+
+
+
+</slide>
+
+
+<slide style="background: yellow;">
+# 第四章
 
 </slide>
 
