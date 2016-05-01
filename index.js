@@ -29,7 +29,7 @@ renderer.html = function(text) {
     function parseCollection(dom) {
         return dom.map(function(item) {
             if (item.type === 'tag') {
-                    return '<' + item.raw + '>' + parseCollection(item.children) + '</' + item.name + '>'
+                return '<' + item.raw + '>' + parseCollection(item.children) + '</' + item.name + '>'
             } else {
                 return marked(item.raw, {
                     renderer: renderer
