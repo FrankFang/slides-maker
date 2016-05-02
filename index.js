@@ -5,13 +5,7 @@ var marked = require('marked')
 var fs = require('fs-promise')
     //var util = require('util')
 var p = require('path')
-var htmlparser = require("htmlparser");
-var handler = new htmlparser.DefaultHandler(function(error, dom) {
-    if (error) {
-        return console.log(error)
-    }
-})
-var parser = new htmlparser.Parser(handler);
+var htmlParser = require('htmlparser2')
 
 var renderer = new marked.Renderer()
 
@@ -24,20 +18,51 @@ renderer.heading = function(text, level) {
         text + '</h' + level + '>\n';
 }
 renderer.html = function(text) {
-    parser.parseComplete(text);
-
-    function parseCollection(dom) {
-        return dom.map(function(item) {
-            if (item.type === 'tag') {
-                return '<' + item.raw + '>' + parseCollection(item.children) + '</' + item.name + '>'
-            } else {
-                return marked(item.raw, {
-                    renderer: renderer
-                })
+    var result = ''
+    var waitForText
+    var buffer = ''
+    var parser = new htmlParser.Parser({
+        onopentag: function(name, attribs) {
+            //if(waitForText === true){}
+            var temp = '<' + name 
+            for(var key in attribs){
+                temp += ' ' + key + '="' + attribs[key] + '"'
             }
-        }).join('\n')
-    }
-    return parseCollection(handler.dom)
+            temp += ' >'
+            if (name === 'slide' || name === 'div') {
+                if (waitForText === true && buffer) {
+                    result += marked(buffer, {
+                        renderer: renderer
+                    })
+                }
+                waitForText = true
+                result += temp
+            }else{
+                buffer += temp
+            }
+        },
+        ontext: function(text) {
+            buffer += text.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        },
+        onclosetag: function(name) {
+            if (name === 'slide' || name === 'div') {
+                if (waitForText === true && buffer) {
+                    result += marked(buffer, {
+                        renderer: renderer
+                    })
+                }
+                waitForText = false
+                result += '</' + name + '>'
+            }else{
+                buffer += '</' + name + '>'
+            }
+        }
+    }, {
+        decodeEntities: true
+    })
+    parser.write(text)
+    parser.end()
+    return result
 }
 
 var length = process.argv.length
