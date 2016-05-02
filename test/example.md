@@ -1,10 +1,13 @@
-<slide style="background: red;">
+<slide>
 # Slides Makes
 ## 又是一个制作PPT的工具 :p
-<div>很好用</div>
+<strong>hi</strong>
+<br/>
+hhh
+<hr>
 </slide>
 
-<slide style="background: green;">
+<slide cols>
 # 有哪些功能
 
 - 腻害
@@ -14,7 +17,7 @@
 </slide>
 
 
-<slide style="background: #ddd;">
+<slide>
 # 如何书写 
 
 1. 每一张幻灯片用一个 `<slide></slide>` 标签表示
@@ -25,7 +28,7 @@
 </slide>
 
 
-<slide style="background: yellow;">
+<slide>
 # 第四章
 
 </slide>

@@ -1,0 +1,36 @@
+body {
+    font-size: 38px;
+    line-height: 1.5;
+    font-family: Helvetica, tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.1em;
+    margin: 20px;
+}
+h2{
+    font-size: 1.58em;
+}
+h3{
+    font-size: 0.84em;
+}
+small{
+    font-size: 0.74em;
+}
+strong{
+    color: hsl(10, 94%, 40%);
+}
+slide {
+    background: #000;
+    color: #fff;
+}
+slide[cols]{
+    flex-direction: row;
+    justify-content: space-around;
+}
+code{
+    background: #eee; border-radius: 5px; padding: 0 5px;
+}

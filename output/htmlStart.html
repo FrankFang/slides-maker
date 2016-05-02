@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
+    <script>
+        !function() {
+            var e = 320, t = document.documentElement.clientWidth;
+            if (t !== e) {
+                var n = document.getElementsByTagName("head")[0],
+                    m = document.createElement("style");
+                m.innerHTML = "html{font-size:" + t / e * 16 + "px;}", n.appendChild(m)
+            }
+        }()
+    </script>
     <link rel="stylesheet" href="./default.css">
+    <link rel="stylesheet" href="./theme.css">
 </head>
+
 <body>

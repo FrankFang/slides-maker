@@ -6,6 +6,7 @@ var fs = require('fs-promise')
     //var util = require('util')
 var p = require('path')
 var htmlParser = require('htmlparser2')
+var _ = require('lodash')
 
 var renderer = new marked.Renderer()
 
@@ -24,8 +25,8 @@ renderer.html = function(text) {
     var parser = new htmlParser.Parser({
         onopentag: function(name, attribs) {
             //if(waitForText === true){}
-            var temp = '<' + name 
-            for(var key in attribs){
+            var temp = '<' + name
+            for (var key in attribs) {
                 temp += ' ' + key + '="' + attribs[key] + '"'
             }
             temp += ' >'
@@ -38,12 +39,12 @@ renderer.html = function(text) {
                 }
                 waitForText = true
                 result += temp
-            }else{
+            } else {
                 buffer += temp
             }
         },
         ontext: function(text) {
-            buffer += text.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            buffer += text.replace(/</g, '&lt;')
         },
         onclosetag: function(name) {
             if (name === 'slide' || name === 'div') {
@@ -55,8 +56,11 @@ renderer.html = function(text) {
                 }
                 waitForText = false
                 result += '</' + name + '>'
-            }else{
-                buffer += '</' + name + '>'
+            } else {
+                var voids = ['area', 'base', 'br', 'col', 'hr', 'img', 'input', 'link', 'meta', 'param', 'command', 'keygen', 'source']
+                if (!_.includes(voids, name)) {
+                    buffer += '</' + name + '>'
+                }
             }
         }
     }, {

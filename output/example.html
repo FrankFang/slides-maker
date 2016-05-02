@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
+    <script>
+        !function() {
+            var e = 320, t = document.documentElement.clientWidth;
+            if (t !== e) {
+                var n = document.getElementsByTagName("head")[0],
+                    m = document.createElement("style");
+                m.innerHTML = "html{font-size:" + t / e * 16 + "px;}", n.appendChild(m)
+            }
+        }()
+    </script>
     <link rel="stylesheet" href="./default.css">
+    <link rel="stylesheet" href="./theme.css">
 </head>
+
 <body>
 
-<slide style="background: red;" ><h1 id=Slides-Makes>Slides Makes</h1>
+<slide ><h1 id=Slides-Makes>Slides Makes</h1>
 <h2 id=又是一个制作PPT的工具-:p>又是一个制作PPT的工具 :p</h2>
-<div ><p>很好用</p>
-</div></slide><slide style="background: green;" ><h1 id=有哪些功能>有哪些功能</h1>
+<p><strong >hi</strong>
+<br >
+hhh</p>
+</slide><slide cols="" ><h1 id=有哪些功能>有哪些功能</h1>
 <ul>
 <li>腻害</li>
 <li>好看</li>
 <li>轻量</li>
 </ul>
-</slide><slide style="background: #ddd;" ><h1 id=如何书写>如何书写</h1>
+</slide><slide ><h1 id=如何书写>如何书写</h1>
 <ol>
 <li>每一张幻灯片用一个 <code >&lt;slide&gt;&lt;/slide&gt;</code> 标签表示</li>
 <li>幻灯片的内容用 Markdown 来书写</li>
 </ol>
-</slide><slide style="background: yellow;" ><h1 id=第四章>第四章</h1>
+</slide><slide ><h1 id=第四章>第四章</h1>
 </slide>
 <script src="./vendor/jquery.min.js"></script>
 <script src="./slides.js"></script>
