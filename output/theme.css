@@ -1,3 +1,6 @@
+*{margin:0; padding:0; box-sizing: border-box;}
+*:before{box-sizing: border-box;}
+*:after{box-sizing: border-box;}
 body {
     font-size: 38px;
     line-height: 1.5;
@@ -32,5 +35,8 @@ slide[cols]{
     justify-content: space-around;
 }
 code{
-    background: #eee; border-radius: 5px; padding: 0 5px;
+    background: #888; color: #fff; border-radius: 5px; padding: 0 5px;
+}
+img{
+    max-width: 100%;
 }
