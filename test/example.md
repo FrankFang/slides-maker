@@ -1,6 +1,7 @@
 <slide style="background: red;">
 # Slides Makes
 ## 又是一个制作PPT的工具 :p
+<div>很好用</div>
 </slide>
 
 <slide style="background: green;">

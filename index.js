@@ -34,6 +34,7 @@ renderer.html = function(text) {
                     result += marked(buffer, {
                         renderer: renderer
                     })
+                    buffer = ''
                 }
                 waitForText = true
                 result += temp
@@ -50,6 +51,7 @@ renderer.html = function(text) {
                     result += marked(buffer, {
                         renderer: renderer
                     })
+                    buffer = ''
                 }
                 waitForText = false
                 result += '</' + name + '>'
@@ -89,11 +91,10 @@ fs.readFile(input).then(function(data) {
             encoding: 'utf8',
             flag: 'w+'
         })
-        let p2 = fs.copy(p.join(__dirname, './templates/assets/'), p.join(outputDir, 'assets/'))
+        let p2 = fs.copy(p.join(__dirname, './templates/'), p.join(outputDir, './'))
         Promise.all([p1, p2]).then(function() {
             console.log('done')
         })
-
     })
 }, function(error) {
     console.log(error)
